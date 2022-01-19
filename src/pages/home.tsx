@@ -1,12 +1,8 @@
 import React from "react";
-import IPage from "../interfaces/page";
-
+import IPage from "../interfaces/pages";
+import "../style/home.css";
 const HomePage: React.FunctionComponent<IPage> = (props) => {
-  return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default HomePage;
