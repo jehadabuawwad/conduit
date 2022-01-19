@@ -1,7 +1,7 @@
 import IRoute from "../interfaces/route";
 import HomePage from "../pages/home";
 import SignIn from "../pages/signin";
-import SignOut from "../pages/signout";
+import SignUp from "../pages/signup";
 
 const routes: IRoute[] = [
   {
@@ -15,8 +15,8 @@ const routes: IRoute[] = [
     exact: true,
   },
   {
-    path: "/sign-out",
-    component: SignOut,
+    path: "/sign-up",
+    component: SignUp,
     exact: true,
   },
 ];

@@ -12,7 +12,7 @@ const Header: React.FunctionComponent<IHeader> = (props) => {
           <div id="links">
             <a href="/">Home</a>
             <a href="/sign-in">Sign In</a>
-            <a href="/sign-out">Sign Up</a>
+            <a href="/sign-up">Sign Up</a>
           </div>
         </nav>
       </header>
