@@ -3,6 +3,7 @@ import "./App.css";
 import routes from "./config/routes";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/header";
+import Footer from "./components/footer";
 const App: React.FunctionComponent<{}> = (props) => {
   return (
     <div>
@@ -19,6 +20,7 @@ const App: React.FunctionComponent<{}> = (props) => {
           );
         })}
       </Switch>
+      <Footer name="Footer" />
     </div>
   );
 };

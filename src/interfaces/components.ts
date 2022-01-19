@@ -4,3 +4,6 @@ export interface IHeader {
 export interface IHero {
   name: string;
 }
+export interface IFooter {
+  name: string;
+}
