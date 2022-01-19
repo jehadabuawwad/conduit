@@ -7,3 +7,6 @@ export interface IHero {
 export interface IFooter {
   name: string;
 }
+export interface IPost {
+  name: string;
+}
