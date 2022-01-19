@@ -5,10 +5,17 @@ import IPage from "../interfaces/pages";
 import "../style/home.css";
 const HomePage: React.FunctionComponent<IPage> = (props) => {
   return (
-    <div>
+    <>
       <Hero name="Hero" />
-      <Post name="Post"/>
-    </div>
+
+      <div className="grid-container">
+        <div className="grid-item item1">
+          <Post name="Post" />
+        </div>
+        <div className="grid-item item2">THIS COMPONENT FOR TAGS</div>
+       
+      </div>
+    </>
   );
 };
 
