@@ -3,11 +3,11 @@ import { IPost } from "../interfaces/components";
 import "../style/post.css";
 import { Icon } from "@iconify/react";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
-import { Action_1 } from "../actions";
+import { CollectData } from "../actions";
 const Post: React.FunctionComponent<IPost> = (props) => {
   const data = useSelector((state: RootStateOrAny) => state.data);
   const dispatch = useDispatch();
-  dispatch(Action_1());
+  dispatch(CollectData());
   return (
     <div>
       <hr />
