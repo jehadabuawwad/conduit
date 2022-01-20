@@ -49,7 +49,7 @@ kill -s KILL node
 - [x] SignUp Pafge
 - [x] Header
 - [x] Footer
-- [] Tags Filtering
+- [x] Tags Filtering
 
 ## Authors
 
