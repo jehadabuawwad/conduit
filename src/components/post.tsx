@@ -10,6 +10,7 @@ const Post: React.FunctionComponent<IPost> = (props) => {
   dispatch(Action_1());
   return (
     <div>
+      <hr />
       {data.map((item: any, idx: any) => {
         return (
           <div>
@@ -42,10 +43,13 @@ const Post: React.FunctionComponent<IPost> = (props) => {
               <a className="preview-link" href="">
                 <h1>{item.title}</h1>
                 <p>{item.subtitle}n</p>
-                <span>Read more...</span>
+                <div id="read">Read more...</div>
                 <ul className="list">
                   {item.tags.map((item: string) => (
-                    <li style={{ padding: 5, display:"inline" }} className="tags-list">
+                    <li
+                      style={{ padding: 5, display: "inline" }}
+                      className="tags-list"
+                    >
                       {item}
                     </li>
                   ))}

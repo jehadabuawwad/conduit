@@ -10,3 +10,6 @@ export interface IFooter {
 export interface IPost {
   name: string;
 }
+export interface ITagsBox {
+  name: string;
+}

@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 .post-icon {
   display: inline-block;
   vertical-align: middle;
@@ -38,15 +41,22 @@
   cursor: pointer;
   user-select: none;
   border: 1px solid transparent;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border-radius: 0.25rem;
   color: #5cb85c;
   background-image: none;
   background-color: transparent;
   border-color: #5cb85c;
 }
-
+.like-button:hover {
+  background-color: #74b566;
+}
+#read {
+  max-width: 30%;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #bbb;
+  vertical-align: middle;
+  margin-top: 35px;
+}
 .preview-link h1 {
   font-weight: 600;
   font-size: 1.5rem;
@@ -56,35 +66,36 @@
   font-weight: 700;
   line-height: 1.1;
   color: #373a3c;
-  cursor: pointer;
 }
+
+.list {
+  float: right;
+  max-width: 50%;
+  vertical-align: top;
+  padding-left: 0;
+  display: inline;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  margin-block-start: 1rem;
+  margin-block-end: 1em;
+  margin-inline-start: 600px;
+  padding-inline-start: 40px;
+}
+
 .tags-list {
   font-weight: 300;
-  font-size: 0.8rem;
-  padding-top: 10;
+  font-size: 0.7rem;
+  padding-top: 0;
   padding-bottom: 0;
   border: 1px solid #ddd;
   color: #aaa;
   background: 0 0;
   white-space: nowrap;
-  margin-right: 2px;
+  margin-right: 3px;
   margin-bottom: 0.2rem;
   padding-right: 0.6em;
   padding-left: 0.6em;
   border-radius: 10rem;
   list-style: none;
-}
-
-.list {
-  max-width: 50%;
-  vertical-align: top;
-  padding-left: 0;
-  display: inline-block;
-  list-style: none;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px;
-  margin-left: 600px;
 }
