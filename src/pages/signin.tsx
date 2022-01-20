@@ -1,15 +1,16 @@
 import React from "react";
 import IPage from "../interfaces/pages";
 import "../style/signin.css";
+import { Link } from 'react-router-dom';
 const SignIn: React.FunctionComponent<IPage> = (props) => {
   return (
     <div className="grid-container">
       <div className="grid-col">
         <div className="grid-row">
           <h1 className="text-center">Sign In</h1>
-          <a className="text-register" href="/register">
+          <Link className="text-register" to="/sign-up">
             Need an account?
-          </a>
+          </Link>
         </div>
         <div className="grid-row">
           <form>

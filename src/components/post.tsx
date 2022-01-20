@@ -6,29 +6,26 @@ import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 import { CollectData } from "../actions";
 import { useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const Post: React.FunctionComponent<IPost> = (props) => {
   const data = useSelector((state: RootStateOrAny) => state.data);
   const selectedTag = useSelector((state: RootStateOrAny) => state.selectedTag);
   const dispatch = useDispatch();
   useEffect(() => {
     (async () => {
-      console.log("dasd");
-
       axios
         .get("https://api.realworld.io/api/articles?limit=10&offset=0")
         .then((response) => {
-          console.log(response.data.articles);
-
           dispatch(CollectData(response.data.articles));
         })
         .catch((error) => {
           console.log(error);
         });
     })();
-  }, []);
+  }, [dispatch]);
   if (selectedTag) {
     var filtered: any = [];
-    data.map((item: any) => {
+    data.forEach((item: any) => {
       const tag = item.tagList;
       if (tag.includes(selectedTag)) {
         filtered.push(item);
@@ -46,19 +43,20 @@ const Post: React.FunctionComponent<IPost> = (props) => {
           <div>
             <div className="article-preview">
               <div className="article-meta">
-                <a className="post-link" href="">
+                <Link className="post-link" to="">
                   <img
+                    alt="missing"
                     className="post-icon"
                     src="https://api.realworld.io/images/demo-avatar.png"
                   />
-                </a>
+                </Link>
                 <div className="info">
-                  <a
+                  <Link
                     className="author"
-                    href="https://react-redux.realworld.io/#/@Gerome?_k=w6xx7a"
+                    to="https://react-redux.realworld.io/#/@Gerome?_k=w6xx7a"
                   >
                     {item.author.username}
-                  </a>
+                  </Link>
                   <span className="date">{item.createdAt}</span>
                 </div>
                 <div className="likes">
@@ -70,14 +68,15 @@ const Post: React.FunctionComponent<IPost> = (props) => {
                   </button>
                 </div>
               </div>
-              <a className="preview-link" href="">
+              <Link className="preview-link" to="">
                 <h1>{item.title}</h1>
                 <p>{item.description}n</p>
                 <div id="read">Read more...</div>
                 <ul className="list">
                   {item.tagList &&
-                    item.tagList.map((tag: string) => (
+                    item.tagList.map((tag: string, idx: number) => (
                       <li
+                        key={idx}
                         style={{ padding: 5, display: "inline" }}
                         className="tags-list"
                       >
@@ -85,7 +84,7 @@ const Post: React.FunctionComponent<IPost> = (props) => {
                       </li>
                     ))}
                 </ul>
-              </a>
+              </Link>
               <hr />
             </div>
           </div>

@@ -2,12 +2,13 @@ import * as React from "react";
 import { IFooter } from "../interfaces/components";
 import "../style/footer.css";
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 const Footer: React.FunctionComponent<IFooter> = (props) => {
   return (
     <div>
-      <a
+      <Link
         id="footer-link"
-        href="https://github.com/gothinkster/react-redux-realworld-example-app"
+        to="https://github.com/gothinkster/react-redux-realworld-example-app"
         target="_blank"
       >
         <Icon
@@ -19,7 +20,7 @@ const Footer: React.FunctionComponent<IFooter> = (props) => {
           icon="ion:logo-github"
         />
         Fork on GitHub
-      </a>
+      </Link>
     </div>
   );
 };

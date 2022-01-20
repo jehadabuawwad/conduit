@@ -6,9 +6,9 @@ const Header: React.FunctionComponent<IHeader> = (props) => {
   return (
     <div>
       <header>
-        <a id="navbar-brand" href="/">
+        <Link id="navbar-brand" to="/">
           conduit
-        </a>
+        </Link>
         <nav>
           <div id="links">
             <Link to="/">Home</Link>

@@ -1,27 +1,39 @@
-import * as React from "react";
-
-import { IMenu } from "../interfaces/components";
 import "../style/menu.css";
+import { IMenu } from "../interfaces/components";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
+import { Link } from "react-router-dom";
+import { SetEmpty } from "../actions";
 const Menu: React.FunctionComponent<IMenu> = (props) => {
+  const dispatch = useDispatch();
   const selectedTag = useSelector((state: RootStateOrAny) => state.selectedTag);
   const handleTagSelection = () => {
     const element: any = document.getElementById("HomeMenu");
     element.style.borderBottom = "1px solid rgb(214, 214, 214)";
     return (
-      <a href="" className="selceted-tag">
+      <Link to="" className="selceted-tag">
         # {selectedTag}
-      </a>
+      </Link>
     );
+  };
+
+  const handleTagUnSelect = () => {
+    const element: any = document.getElementById("HomeMenu");
+    element.style.borderBottom = "2px solid #5cb85c";
+    dispatch(SetEmpty());
   };
   return (
     <div>
       <div className="feed-toggle">
         <ul className="nav">
           <li className="nav-item">
-            <a id="HomeMenu" href="" className="nav-link">
+            <Link
+              onClick={handleTagUnSelect}
+              id="HomeMenu"
+              to=""
+              className="nav-link"
+            >
               Global Feed
-            </a>
+            </Link>
             {selectedTag && handleTagSelection()}
           </li>
         </ul>
