@@ -7,6 +7,7 @@ import { CollectData } from "../actions";
 import { useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Moment from "react-moment";
 const Post: React.FunctionComponent<IPost> = (props) => {
   const data = useSelector((state: RootStateOrAny) => state.data);
   const selectedTag = useSelector((state: RootStateOrAny) => state.selectedTag);
@@ -57,7 +58,9 @@ const Post: React.FunctionComponent<IPost> = (props) => {
                   >
                     {item.author.username}
                   </Link>
-                  <span className="date">{item.createdAt}</span>
+                  <span className="date">
+                    <Moment>{item.createdAt}</Moment>
+                  </span>
                 </div>
                 <div className="likes">
                   <button className="like-button">
