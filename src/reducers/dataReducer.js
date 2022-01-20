@@ -1,5 +1,7 @@
 import { data } from "../static/data";
+
 const DataReducer = (state = data, action) => {
+  
   switch (action.type) {
     case "allData":
       return state;

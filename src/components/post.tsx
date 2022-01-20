@@ -13,17 +13,15 @@ const Post: React.FunctionComponent<IPost> = (props) => {
   if (selectedTag) {
     var filtered: any = [];
     data.map((item: any) => {
-      const tag=item.tags
-      if(tag.includes(selectedTag)){
-        filtered.push(item)
-      }    
+      const tag = item.tags;
+      if (tag.includes(selectedTag)) {
+        filtered.push(item);
+      }
     });
-
-  }else{
-    filtered=data;
+  } else {
+    filtered = data;
   }
   dispatch(CollectData());
-  dispatch(collectSelectedTag());
   return (
     <div>
       <hr />
