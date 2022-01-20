@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { ITagsBox } from "../interfaces/components";
 import "../style/tagsbox.css";
-import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
+import {  useDispatch } from "react-redux";
 import { collectSelectedTag } from "../actions";
 const TagsBox: React.FunctionComponent<ITagsBox> = (props) => {
   const dispatch = useDispatch();

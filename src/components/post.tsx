@@ -4,16 +4,32 @@ import "../style/post.css";
 import { Icon } from "@iconify/react";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 import { CollectData } from "../actions";
-import { collectSelectedTag } from "../actions";
+import { useEffect } from "react";
+import axios from "axios";
 const Post: React.FunctionComponent<IPost> = (props) => {
   const data = useSelector((state: RootStateOrAny) => state.data);
   const selectedTag = useSelector((state: RootStateOrAny) => state.selectedTag);
   const dispatch = useDispatch();
+  useEffect(() => {
+    (async () => {
+      console.log("dasd");
 
+      axios
+        .get("https://api.realworld.io/api/articles?limit=10&offset=0")
+        .then((response) => {
+          console.log(response.data.articles);
+
+          dispatch(CollectData(response.data.articles));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    })();
+  }, []);
   if (selectedTag) {
     var filtered: any = [];
     data.map((item: any) => {
-      const tag = item.tags;
+      const tag = item.tagList;
       if (tag.includes(selectedTag)) {
         filtered.push(item);
       }
@@ -21,7 +37,7 @@ const Post: React.FunctionComponent<IPost> = (props) => {
   } else {
     filtered = data;
   }
-  dispatch(CollectData());
+
   return (
     <div>
       <hr />
@@ -41,32 +57,33 @@ const Post: React.FunctionComponent<IPost> = (props) => {
                     className="author"
                     href="https://react-redux.realworld.io/#/@Gerome?_k=w6xx7a"
                   >
-                    {item.author}
+                    {item.author.username}
                   </a>
-                  <span className="date">{item.date}</span>
+                  <span className="date">{item.createdAt}</span>
                 </div>
                 <div className="likes">
                   <button className="like-button">
                     <Icon icon="ant-design:heart-filled" />
                     <p style={{ display: "inline", marginLeft: 5 }}>
-                      {item.numOfLikes}
+                      {item.favoritesCount}
                     </p>
                   </button>
                 </div>
               </div>
               <a className="preview-link" href="">
                 <h1>{item.title}</h1>
-                <p>{item.subtitle}n</p>
+                <p>{item.description}n</p>
                 <div id="read">Read more...</div>
                 <ul className="list">
-                  {item.tags.map((item: string) => (
-                    <li
-                      style={{ padding: 5, display: "inline" }}
-                      className="tags-list"
-                    >
-                      {item}
-                    </li>
-                  ))}
+                  {item.tagList &&
+                    item.tagList.map((tag: string) => (
+                      <li
+                        style={{ padding: 5, display: "inline" }}
+                        className="tags-list"
+                      >
+                        {tag}
+                      </li>
+                    ))}
                 </ul>
               </a>
               <hr />

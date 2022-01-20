@@ -13,7 +13,7 @@ const HomePage: React.FunctionComponent<IPage> = (props) => {
       <div className="grid-container">
         <div className="grid-item item1">
           <Menu name="Menu" />
-          <Post name="Post"  />
+          <Post name="Post" />
         </div>
         <div className="grid-item item2">
           <TagsBox name="Tags Box" />

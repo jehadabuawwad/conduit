@@ -1,10 +1,9 @@
 import { data } from "../static/data";
 
 const DataReducer = (state = data, action) => {
-  
   switch (action.type) {
-    case "allData":
-      return state;
+    case "object":
+      return action.data;
     default:
       return state;
   }
