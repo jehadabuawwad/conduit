@@ -1,4 +1,4 @@
-const TagSelect = (state = "introduction", action) => {
+const TagSelect = (state = "", action) => {
   switch (action.type) {
     case "selectedTag":
       return state;

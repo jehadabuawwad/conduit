@@ -4,14 +4,30 @@ import "../style/post.css";
 import { Icon } from "@iconify/react";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 import { CollectData } from "../actions";
+import { collectSelectedTag } from "../actions";
 const Post: React.FunctionComponent<IPost> = (props) => {
   const data = useSelector((state: RootStateOrAny) => state.data);
+  const selectedTag = useSelector((state: RootStateOrAny) => state.selectedTag);
   const dispatch = useDispatch();
+
+  if (selectedTag) {
+    var filtered: any = [];
+    data.map((item: any) => {
+      const tag=item.tags
+      if(tag.includes(selectedTag)){
+        filtered.push(item)
+      }    
+    });
+
+  }else{
+    filtered=data;
+  }
   dispatch(CollectData());
+  dispatch(collectSelectedTag());
   return (
     <div>
       <hr />
-      {data.map((item: any, idx: any) => {
+      {filtered.map((item: any, idx: any) => {
         return (
           <div>
             <div className="article-preview">
