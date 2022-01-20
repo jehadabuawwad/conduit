@@ -1,0 +1,22 @@
+.nav {
+  position: absolute;
+  margin-top: -35px;
+  margin-left: -55px;
+  list-style: none;
+}
+
+.nav-link {
+  float: left;
+  display: block;
+  padding: 0.5em 1em;
+
+  background: #fff !important;
+  border-bottom: 2px solid #5cb85c !important;
+  color: #5cb85c !important;
+  padding-left: 0;
+  padding-bottom: 12px;
+  margin-bottom: 0;
+  width: 110px;
+  text-align: right;
+  font-weight: 500;
+}

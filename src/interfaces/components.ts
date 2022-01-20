@@ -13,3 +13,6 @@ export interface IPost {
 export interface ITagsBox {
   name: string;
 }
+export interface IMenu {
+  name: string;
+}
