@@ -31,9 +31,10 @@
 }
 
 .container p {
+  color: #fff;
   margin-top: -45px;
   text-align: center;
   font-size: 1.5rem;
-  font-weight: 300;
+  font-weight: lighter;
   display: block;
 }

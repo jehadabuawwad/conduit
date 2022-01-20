@@ -1,6 +1,7 @@
 import * as React from "react";
 import { IHeader } from "../interfaces/components";
 import "../style/header.css";
+import { Link } from "react-router-dom";
 const Header: React.FunctionComponent<IHeader> = (props) => {
   return (
     <div>
@@ -10,9 +11,9 @@ const Header: React.FunctionComponent<IHeader> = (props) => {
         </a>
         <nav>
           <div id="links">
-            <a href="/">Home</a>
-            <a href="/sign-in">Sign In</a>
-            <a href="/sign-up">Sign Up</a>
+            <Link to="/">Home</Link>
+            <Link to="/sign-in">Sign In</Link>
+            <Link to="/sign-up">Sign Up</Link>
           </div>
         </nav>
       </header>
