@@ -37,7 +37,7 @@ const Post: React.FunctionComponent<IPost> = (props) => {
   }
 
   return (
-    <div>
+    <>
       <hr />
       {filtered.map((item: any, idx: any) => {
         return (
@@ -93,7 +93,7 @@ const Post: React.FunctionComponent<IPost> = (props) => {
           </div>
         );
       })}
-    </div>
+    </>
   );
 };
 

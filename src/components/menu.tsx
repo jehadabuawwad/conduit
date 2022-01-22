@@ -22,7 +22,7 @@ const Menu: React.FunctionComponent<IMenu> = (props) => {
     dispatch(SetEmpty());
   };
   return (
-    <div>
+    <>
       <div className="feed-toggle">
         <ul className="nav">
           <li className="nav-item">
@@ -38,7 +38,7 @@ const Menu: React.FunctionComponent<IMenu> = (props) => {
           </li>
         </ul>
       </div>
-    </div>
+    </>
   );
 };
 
