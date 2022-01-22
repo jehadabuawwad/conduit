@@ -2,7 +2,7 @@ import React from "react";
 import IPage from "../interfaces/pages";
 import "../style/signin.css";
 import { Link } from "react-router-dom";
-import SignInForm from '../components/signin';
+import SignInForm from "../components/signin";
 const SignIn: React.FunctionComponent<IPage> = (props) => {
   return (
     <div className="grid-container">
@@ -14,7 +14,7 @@ const SignIn: React.FunctionComponent<IPage> = (props) => {
           </Link>
         </div>
         <div className="grid-row">
-        <SignInForm name="Sing In"/>
+          <SignInForm name="Sing In" />
         </div>
       </div>
     </div>

@@ -49,7 +49,6 @@ const Header: React.FunctionComponent<IHeader> = (props) => {
         <nav>
           <div id="links">
             <Link to="/">Home</Link>
-
             {isLogged ? (
               <Link onClick={handleSignOut} to="/sign-in">
                 Sign Out
