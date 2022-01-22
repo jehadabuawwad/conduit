@@ -5,7 +5,7 @@ import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 const Footer: React.FunctionComponent<IFooter> = (props) => {
   return (
-    <div>
+    <>
       <Link
         id="footer-link"
         to="https://github.com/gothinkster/react-redux-realworld-example-app"
@@ -21,7 +21,7 @@ const Footer: React.FunctionComponent<IFooter> = (props) => {
         />
         Fork on GitHub
       </Link>
-    </div>
+    </>
   );
 };
 

@@ -4,7 +4,7 @@ import "../style/header.css";
 import { Link } from "react-router-dom";
 const Header: React.FunctionComponent<IHeader> = (props) => {
   return (
-    <div>
+    <>
       <header>
         <Link id="navbar-brand" to="/">
           conduit
@@ -17,7 +17,7 @@ const Header: React.FunctionComponent<IHeader> = (props) => {
           </div>
         </nav>
       </header>
-    </div>
+    </>
   );
 };
 
