@@ -7,9 +7,9 @@ export const collectSelectedTag = (data) => {
 export const SetEmpty = () => {
   return { type: "home", data: {} };
 };
-export const signIn = (data) => {
+export const SignIn = (data) => {
   return { type: "SignIn", data: data };
 };
-export const SetEmpty = (data) => {
+export const SignUp = (data) => {
   return { type: "SignUp", data: data };
 };
