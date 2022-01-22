@@ -1,12 +1,16 @@
 import React from "react";
 import "./App.css";
 import routes from "./config/routes";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import SignIn from "./pages/signin";
+import HomePage from "./pages/home";
+
 const App: React.FunctionComponent<{}> = (props) => {
+  const loggedIn = Boolean(localStorage.getItem("token"));
   return (
-    <div>
+    <>
       <Header name="Header" />
       <Switch>
         {routes.map((route, index) => {
@@ -21,7 +25,7 @@ const App: React.FunctionComponent<{}> = (props) => {
         })}
       </Switch>
       <Footer name="Footer" />
-    </div>
+    </>
   );
 };
 

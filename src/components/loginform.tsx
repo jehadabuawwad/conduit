@@ -23,6 +23,9 @@ const LoginForm: React.FunctionComponent<IForm> = (props) => {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     await authService.login(data.email, data.password);
+    await setTimeout(function () {
+      window.location.reload();
+    }, 500);
   };
   return (
     <>
