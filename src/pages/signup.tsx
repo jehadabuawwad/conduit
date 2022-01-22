@@ -2,6 +2,7 @@ import React from "react";
 import IPage from "../interfaces/pages";
 import "../style/signup.css";
 import { Link } from "react-router-dom";
+import SignUpForm from "../components/signup";
 const SignUp: React.FunctionComponent<IPage> = (props) => {
   return (
     <div className="grid-container">
@@ -13,34 +14,7 @@ const SignUp: React.FunctionComponent<IPage> = (props) => {
           </Link>
         </div>
         <div className="grid-row">
-          <form>
-            <fieldset>
-              <fieldset className="form-group">
-                <input
-                  type="username"
-                  className="form-control"
-                  placeholder="Username"
-                />
-              </fieldset>
-              <fieldset className="form-group">
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Email"
-                />
-              </fieldset>
-              <fieldset className="form-group">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Password"
-                />
-              </fieldset>
-              <button className="btn" type="submit">
-                Sign in
-              </button>
-            </fieldset>
-          </form>
+          <SignUpForm name="Sign Up" />
         </div>
       </div>
     </div>

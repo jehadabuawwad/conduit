@@ -16,3 +16,6 @@ export interface ITagsBox {
 export interface IMenu {
   name: string;
 }
+export interface IForm {
+  name: string;
+}
