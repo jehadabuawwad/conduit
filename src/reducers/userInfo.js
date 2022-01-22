@@ -1,6 +1,6 @@
 const userInfo = (state = {}, action) => {
   switch (action.type) {
-    case "login":
+    case "signIn":
       return action.data;
     case "signUp":
       return action.data;

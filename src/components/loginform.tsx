@@ -1,18 +1,51 @@
 import * as React from "react";
 import { IForm } from "../interfaces/components";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import authService from "../services/authService";
+import { SignIn } from "../actions";
 const LoginForm: React.FunctionComponent<IForm> = (props) => {
+  interface UserData {
+    password: string;
+    email: string;
+  }
+  const initialState = {
+    password: "",
+    email: "",
+  };
+  const [data, setData] = useState<UserData>(initialState);
+  const dispatch = useDispatch();
+
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setData({ ...data, [event.target.name]: event.target.value });
+    dispatch(SignIn(data));
+  };
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    await authService.login(data.email, data.password);
+  };
   return (
     <>
-      <form>
+      <form onSubmit={onSubmit}>
         <fieldset>
           <fieldset className="form-group">
-            <input type="email" className="form-control" placeholder="Email" />
+            <input
+              onChange={onChange}
+              type="text"
+              className="form-control"
+              placeholder="Email"
+              value={data.email}
+              name="email"
+            />
           </fieldset>
           <fieldset className="form-group">
             <input
-              type="password"
+              onChange={onChange}
+              type="text"
               className="form-control"
               placeholder="Password"
+              value={data.password}
+              name="password"
             />
           </fieldset>
           <button className="btn" type="submit">
