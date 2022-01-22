@@ -1,18 +1,16 @@
 import axios from "axios";
 import logger from "./logService";
 import { toast } from "react-toastify";
-
-axios.interceptors.response.use(null, error => {
+axios.interceptors.response.use(null, (error) => {
   const expectedError =
     error.response &&
-    error.response.status >= 400 &&
-    error.response.status < 500;
+    error.response.status === 400 &&
+    error.response.status !== 200;
 
-  if (!expectedError) {
+  if (expectedError) {
     logger.log(error);
-    toast.error("An unexpected error occurrred.");
+    toast.error("Please Check again for the entered data");
   }
-
   return Promise.reject(error);
 });
 
@@ -25,5 +23,5 @@ export default {
   post: axios.post,
   put: axios.put,
   delete: axios.delete,
-  setJwt
+  setJwt,
 };

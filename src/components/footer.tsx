@@ -1,8 +1,8 @@
 import * as React from "react";
-import { IFooter } from "../interfaces/components";
 import "../style/footer.css";
-import { Icon } from "@iconify/react";
+import { IFooter } from "../interfaces/components";
 import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
 const Footer: React.FunctionComponent<IFooter> = (props) => {
   return (
     <>

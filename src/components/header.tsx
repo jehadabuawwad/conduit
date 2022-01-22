@@ -1,13 +1,12 @@
 import * as React from "react";
-import { IHeader } from "../interfaces/components";
 import "../style/header.css";
+import { IHeader } from "../interfaces/components";
 import { Link, Redirect } from "react-router-dom";
 const Header: React.FunctionComponent<IHeader> = (props) => {
   const isLogged = localStorage.getItem("token");
   const handleSignOut = () => {
     localStorage.clear();
     setTimeout(() => {
-      const isLogged = Boolean(localStorage.getItem("token"));
       document.location.reload();
     }, 250);
   };
