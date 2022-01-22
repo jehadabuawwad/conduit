@@ -1,7 +1,8 @@
 import React from "react";
 import IPage from "../interfaces/pages";
 import "../style/signin.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import LoginForm from "../components/loginform";
 const SignIn: React.FunctionComponent<IPage> = (props) => {
   return (
     <div className="grid-container">
@@ -13,27 +14,7 @@ const SignIn: React.FunctionComponent<IPage> = (props) => {
           </Link>
         </div>
         <div className="grid-row">
-          <form>
-            <fieldset>
-              <fieldset className="form-group">
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Email"
-                />
-              </fieldset>
-              <fieldset className="form-group">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Password"
-                />
-              </fieldset>
-              <button className="btn" type="submit">
-                Sign in
-              </button>
-            </fieldset>
-          </form>
+          <LoginForm name="Login Form" />
         </div>
       </div>
     </div>
