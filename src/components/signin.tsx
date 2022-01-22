@@ -3,7 +3,7 @@ import { IForm } from "../interfaces/components";
 import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import { SignIn } from "../actions";
 import { useState } from "react";
-import authService from "../services/authService";
+import {login} from "../services/authService";
 const SignInForm: React.FunctionComponent<IForm> = (props) => {
   const initalState = { email: "", password: "" };
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const SignInForm: React.FunctionComponent<IForm> = (props) => {
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await authService.login(info.email, info.password);
+    await login(info.email, info.password);
     await setTimeout(() => {
       document.location.reload();
     }, 250);

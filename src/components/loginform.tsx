@@ -2,7 +2,7 @@ import * as React from "react";
 import { IForm } from "../interfaces/components";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import authService from "../services/authService";
+import { login } from "../services/authService";
 import { SignIn } from "../actions";
 const LoginForm: React.FunctionComponent<IForm> = (props) => {
   interface UserData {
@@ -22,7 +22,7 @@ const LoginForm: React.FunctionComponent<IForm> = (props) => {
   };
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await authService.login(data.email, data.password);
+    await login(data.email, data.password);
     await setTimeout(function () {
       window.location.reload();
     }, 500);

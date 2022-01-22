@@ -1,13 +1,12 @@
 import React from "react";
 import "./App.css";
 import routes from "./config/routes";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const App: React.FunctionComponent<{}> = (props) => {
-  const loggedIn = Boolean(localStorage.getItem("token"));
   return (
     <>
       <ToastContainer />

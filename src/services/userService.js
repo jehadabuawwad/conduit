@@ -10,7 +10,3 @@ export function register(user) {
     name: user.name,
   });
 }
-
-export default {
-  register,
-};
