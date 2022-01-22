@@ -17,6 +17,9 @@ const SignInForm: React.FunctionComponent<IForm> = (props) => {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     await authService.login(info.email, info.password);
+    await setTimeout(() => {
+      document.location.reload();
+    }, 250);
   };
   return (
     <form onSubmit={onSubmit}>
