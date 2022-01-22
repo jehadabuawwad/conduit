@@ -8,7 +8,7 @@ const SignInForm: React.FunctionComponent<IForm> = (props) => {
   const initalState = { email: "", password: "" };
   const dispatch = useDispatch();
   const [data, setData] = useState(initalState);
-  const info = useSelector((state: RootStateOrAny) => state.userInfo);
+  const info = useSelector((state: RootStateOrAny) => state.UserInfo);
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [event.target.name]: event.target.value });
     dispatch(SignIn(data));

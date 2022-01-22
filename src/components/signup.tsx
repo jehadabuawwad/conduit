@@ -1,24 +1,55 @@
 import * as React from "react";
 import { IForm } from "../interfaces/components";
+import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
+import { SignUp } from "../actions";
+import { useState } from "react";
+import { register } from "../services/userService";
 const SignUpForm: React.FunctionComponent<IForm> = (props) => {
+  const initalState = { email: "", password: "", name: "" };
+  const dispatch = useDispatch();
+  const [data, setData] = useState(initalState);
+  const info = useSelector((state: RootStateOrAny) => state.UserInfo);
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setData({ ...data, [event.target.name]: event.target.value });
+    dispatch(SignUp(data));
+  };
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    await register(info);
+  };
+
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <fieldset>
         <fieldset className="form-group">
           <input
-            type="username"
+            onChange={onChange}
+            type="text"
             className="form-control"
-            placeholder="Username"
+            placeholder="Name"
+            value={data.name}
+            name="name"
           />
         </fieldset>
         <fieldset className="form-group">
-          <input type="email" className="form-control" placeholder="Email" />
+          <input
+            onChange={onChange}
+            type="text"
+            className="form-control"
+            placeholder="Email"
+            value={data.email}
+            name="email"
+          />
         </fieldset>
         <fieldset className="form-group">
           <input
-            type="password"
+            onChange={onChange}
+            type="text"
             className="form-control"
             placeholder="Password"
+            value={data.password}
+            name="password"
           />
         </fieldset>
         <button className="btn" type="submit">

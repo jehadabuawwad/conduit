@@ -1,4 +1,4 @@
-const userInfo = (state = {}, action) => {
+const UserInfo = (state = {}, action) => {
   switch (action.type) {
     case "SignIn":
       return action.data;
@@ -9,4 +9,4 @@ const userInfo = (state = {}, action) => {
   }
 };
 
-export default userInfo;
+export default UserInfo;
