@@ -58,7 +58,7 @@ const Post: React.FunctionComponent<IPost> = (props) => {
                 <div className="info">
                   <Link
                     className="author"
-                    to="https://react-redux.realworld.io/#/@Gerome?_k=w6xx7a"
+                    to="#"
                   >
                     {item.author.username}
                   </Link>
