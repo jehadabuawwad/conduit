@@ -5,12 +5,23 @@ import { SignUp } from "../actions";
 import { useState } from "react";
 import { register } from "../services/userService";
 const SignUpForm: React.FunctionComponent<IForm> = (props) => {
+  interface UserData {
+    password: string;
+    email: string;
+    name: string;
+  }
+  
   const initalState = { email: "", password: "", name: "" };
   const dispatch = useDispatch();
   const [data, setData] = useState(initalState);
   const info = useSelector((state: RootStateOrAny) => state.UserInfo);
+  
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [event.target.name]: event.target.value });
+    //Dont Use ..>> // setData({ ...data, [event.target.name]: event.target.value });
+    setData((prev: UserData) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
     dispatch(SignUp(data));
   };
 

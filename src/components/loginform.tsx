@@ -17,7 +17,11 @@ const LoginForm: React.FunctionComponent<IForm> = (props) => {
   const dispatch = useDispatch();
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [event.target.name]: event.target.value });
+    //Dont Use ..>> // setData({ ...data, [event.target.name]: event.target.value });
+    setData((prev: UserData) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
     dispatch(SignIn(data));
   };
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
