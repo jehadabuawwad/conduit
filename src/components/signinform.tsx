@@ -3,7 +3,7 @@ import { IForm } from "../interfaces/components";
 import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import { SignIn } from "../actions";
 import { useState } from "react";
-import {login} from "../services/authService";
+import { login } from "../services/authService";
 const SignInForm: React.FunctionComponent<IForm> = (props) => {
   const initalState = { email: "", password: "" };
   const dispatch = useDispatch();
@@ -17,31 +17,32 @@ const SignInForm: React.FunctionComponent<IForm> = (props) => {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     await login(info.email, info.password);
-    await setTimeout(() => {
-      document.location.reload();
+    setTimeout(() => {
+      window.location.reload();
     }, 250);
   };
+
   return (
     <form onSubmit={onSubmit}>
       <fieldset>
         <fieldset className="form-group">
           <input
             onChange={onChange}
-            type="email"
+            type="text"
             className="form-control"
             placeholder="Email"
-            name="email"
             value={data.email}
+            name="email"
           />
         </fieldset>
         <fieldset className="form-group">
           <input
             onChange={onChange}
-            type="password"
+            type="text"
             className="form-control"
             placeholder="Password"
-            name="password"
             value={data.password}
+            name="password"
           />
         </fieldset>
         <button className="btn" type="submit">

@@ -10,12 +10,12 @@ const SignUpForm: React.FunctionComponent<IForm> = (props) => {
     email: string;
     name: string;
   }
-  
+
   const initalState = { email: "", password: "", name: "" };
   const dispatch = useDispatch();
   const [data, setData] = useState(initalState);
   const info = useSelector((state: RootStateOrAny) => state.UserInfo);
-  
+
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     //Dont Use ..>> // setData({ ...data, [event.target.name]: event.target.value });
     setData((prev: UserData) => ({
@@ -36,31 +36,31 @@ const SignUpForm: React.FunctionComponent<IForm> = (props) => {
         <fieldset className="form-group">
           <input
             onChange={onChange}
+            name="name"
             type="text"
             className="form-control"
             placeholder="Name"
             value={data.name}
-            name="name"
           />
         </fieldset>
         <fieldset className="form-group">
           <input
             onChange={onChange}
+            name="email"
             type="text"
             className="form-control"
             placeholder="Email"
             value={data.email}
-            name="email"
           />
         </fieldset>
         <fieldset className="form-group">
           <input
             onChange={onChange}
+            name="password"
             type="text"
             className="form-control"
             placeholder="Password"
             value={data.password}
-            name="password"
           />
         </fieldset>
         <button className="btn" type="submit">

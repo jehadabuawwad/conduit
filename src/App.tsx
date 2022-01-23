@@ -1,27 +1,24 @@
 import React from "react";
 import "./App.css";
-import routes from "./config/routes";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ProtectedRoute, PublicRoute } from "./config/routes";
+import HomePage from "./pages/home";
+import SignIn from "./pages/signin";
+import SignUp from "./pages/signup";
 const App: React.FunctionComponent<{}> = (props) => {
   return (
     <>
       <ToastContainer />
       <Header name="Header" />
       <Switch>
-        {routes.map((route, index) => {
-          return (
-            <Route
-              key={index}
-              path={route.path}
-              component={route.component}
-              exact={route.exact}
-            ></Route>
-          );
-        })}
+        <Route path="/sign-in" component={SignIn}></Route>
+        <Route path="/sign-up" component={SignUp}></Route>
+        <ProtectedRoute name="Protected Route" component={HomePage} />
+        <PublicRoute name="Public Route" component={SignUp} />
       </Switch>
       <Footer name="Footer" />
     </>

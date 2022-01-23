@@ -2,7 +2,7 @@ import React from "react";
 import IPage from "../interfaces/pages";
 import "../style/signup.css";
 import { Link } from "react-router-dom";
-import SignUpForm from "../components/signup";
+import SignUpForm from "../components/signupform";
 const SignUp: React.FunctionComponent<IPage> = (props) => {
   return (
     <div className="grid-container">
