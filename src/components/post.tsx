@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
+import { config } from '../config/config';
 const Post: React.FunctionComponent<IPost> = (props) => {
   const data = useSelector((state: RootStateOrAny) => state.data);
   const selectedTag = useSelector((state: RootStateOrAny) => state.selectedTag);
@@ -15,7 +16,7 @@ const Post: React.FunctionComponent<IPost> = (props) => {
   useEffect(() => {
     (async () => {
       axios
-        .get("https://api.realworld.io/api/articles?limit=10&offset=0")
+        .get(config.postUrl)
         .then((response) => {
           dispatch(CollectData(response.data.articles));
         })

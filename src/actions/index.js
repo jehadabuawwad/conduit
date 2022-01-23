@@ -4,6 +4,9 @@ export const CollectData = (data) => {
 export const collectSelectedTag = (data) => {
   return { type: "string", data: data };
 };
+export const CollectTags = (data) => {
+  return { type: "tags", data: data };
+};
 export const SetEmpty = () => {
   return { type: "home", data: {} };
 };
