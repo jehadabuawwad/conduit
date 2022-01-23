@@ -4,13 +4,24 @@ import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import { SignIn } from "../actions";
 import { useState } from "react";
 import { login } from "../services/authService";
+
 const SignInForm: React.FunctionComponent<IForm> = (props) => {
+  interface UserData {
+    password: string;
+    email: string;
+  }
+
   const initalState = { email: "", password: "" };
   const dispatch = useDispatch();
   const [data, setData] = useState(initalState);
   const info = useSelector((state: RootStateOrAny) => state.UserInfo);
+
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [event.target.name]: event.target.value });
+    //Dont Use ..>> // setData({ ...data, [event.target.name]: event.target.value });
+    setData((prev: UserData) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
     dispatch(SignIn(data));
   };
 

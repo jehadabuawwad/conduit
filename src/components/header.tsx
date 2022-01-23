@@ -4,12 +4,14 @@ import { IHeader } from "../interfaces/components";
 import { Link } from "react-router-dom";
 const Header: React.FunctionComponent<IHeader> = (props) => {
   const isLogged = localStorage.getItem("token");
+
   const handleSignOut = () => {
     localStorage.clear();
     setTimeout(() => {
       document.location.reload();
     }, 250);
   };
+
   return (
     <>
       <header>

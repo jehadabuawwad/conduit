@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import { Route, Switch, Redirect } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { Route, Switch } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import { ProtectedRoute, PublicRoute } from "./config/routes";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { ProtectedRoute, PublicRoute } from "./config/routes";
 import HomePage from "./pages/home";
 import SignIn from "./pages/signin";
 import SignUp from "./pages/signup";

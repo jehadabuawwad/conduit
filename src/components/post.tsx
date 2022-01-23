@@ -8,11 +8,13 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
-import { config } from '../config/config';
+import { config } from "../config/config";
+
 const Post: React.FunctionComponent<IPost> = (props) => {
   const data = useSelector((state: RootStateOrAny) => state.data);
   const selectedTag = useSelector((state: RootStateOrAny) => state.selectedTag);
   const dispatch = useDispatch();
+
   useEffect(() => {
     (async () => {
       axios
@@ -25,6 +27,7 @@ const Post: React.FunctionComponent<IPost> = (props) => {
         });
     })();
   }, [dispatch]);
+
   if (selectedTag) {
     var filtered: any = [];
     data.forEach((item: any) => {

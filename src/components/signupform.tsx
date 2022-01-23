@@ -4,6 +4,7 @@ import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import { SignUp } from "../actions";
 import { useState } from "react";
 import { register } from "../services/userService";
+
 const SignUpForm: React.FunctionComponent<IForm> = (props) => {
   interface UserData {
     password: string;
