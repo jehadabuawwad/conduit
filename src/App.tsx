@@ -13,14 +13,14 @@ const App: React.FunctionComponent<{}> = (props) => {
   return (
     <>
       <ToastContainer />
-      <Header name="Header" />
+      <Header name='Header' />
       <Switch>
-        <Route path="/sign-in" component={SignIn}></Route>
-        <Route path="/sign-up" component={SignUp}></Route>
-        <ProtectedRoute name="Protected Route" component={HomePage} />
-        <PublicRoute name="Public Route" component={SignUp} />
+        <Route path='/sign-in' component={SignIn}></Route>
+        <Route path='/sign-up' component={SignUp}></Route>
+        <ProtectedRoute name='Protected Route' component={HomePage} />
+        <PublicRoute name='Public Route' component={SignUp} />
       </Switch>
-      <Footer name="Footer" />
+      <Footer name='Footer' />
     </>
   );
 };
