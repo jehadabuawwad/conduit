@@ -21,12 +21,13 @@ const Header: React.FunctionComponent<IHeader> = (props) => {
         </Link>
         <nav>
           <div id='links'>
-            <Link to='/'>Home</Link>
-
             {isLogged ? (
-              <Link onClick={handleSignOut} to='/sign-in'>
-                Sign Out
-              </Link>
+              <>
+                <Link to='/'>Home</Link>
+                <Link onClick={handleSignOut} to='/sign-in'>
+                  Sign Out
+                </Link>
+              </>
             ) : (
               <>
                 <Link to='/sign-in'>Sign In</Link>
