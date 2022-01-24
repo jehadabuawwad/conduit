@@ -33,9 +33,9 @@ const Post: React.FunctionComponent<IPost> = (props) => {
   return (
     <>
       <hr />
-      {filtered.map((item: any) => {
+      {filtered.map((item: any,idx:number) => {
         return (
-          <div>
+          <div key={idx}>
             <div className='article-preview'>
               <div className='article-meta'>
                 <Link className='post-link' to=''>
@@ -56,7 +56,9 @@ const Post: React.FunctionComponent<IPost> = (props) => {
                 <div className='likes'>
                   <button className='like-button'>
                     <Icon icon='ant-design:heart-filled' />
-                    <p style={{ display: "inline", marginLeft: 5 }}>{item.favoritesCount}</p>
+                    <p style={{ display: "inline", marginLeft: 5 }}>
+                      {item.favoritesCount}
+                    </p>
                   </button>
                 </div>
               </div>
@@ -68,7 +70,7 @@ const Post: React.FunctionComponent<IPost> = (props) => {
                   {item.tagList &&
                     item.tagList.map((tag: string, idx: number) => (
                       <li
-                        key={item}
+                        key={tag}
                         style={{ padding: 5, display: "inline" }}
                         className='tags-list'
                       >
