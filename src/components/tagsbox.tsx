@@ -4,25 +4,18 @@ import "../style/tagsbox.css";
 import { collectSelectedTag } from "../actions";
 import { useEffect } from "react";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import { CollectTags } from "../actions";
 import { config } from "../config/config";
+import useResource from "../services/useResource";
 const TagsBox: React.FunctionComponent<ITagsBox> = (props) => {
   const dispatch = useDispatch();
   const selectedTags = useSelector((state: RootStateOrAny) => state.Tags);
-  useEffect(() => {
-    axios
-      .get(config.tagsUrl)
-      .then((response) => {
-        dispatch(CollectTags(response.data.tags));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [dispatch]);
+  const { getTags } = useResource();
 
-  console.log(selectedTags);
+  useEffect(() => {
+    getTags(config.tagsUrl);
+  }, [getTags]);
+
   return (
     <div className='sidebar'>
       <p>Popular Tags</p>

@@ -13,10 +13,10 @@ const SignInForm: React.FunctionComponent<IForm> = (props) => {
   }
 
   const initalState = { email: "", password: "" };
-  const dispatch = useDispatch();
-  const { login } = useAuth();
   const [data, setData] = useState(initalState);
   const info = useSelector((state: RootStateOrAny) => state.UserInfo);
+  const dispatch = useDispatch();
+  const { login } = useAuth();
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     //Dont Use ..>> // setData({ ...data, [event.target.name]: event.target.value });

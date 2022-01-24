@@ -1,4 +1,3 @@
-import jwtDecode from "jwt-decode";
 import http from "./httpService";
 import { config } from "../config/config";
 import { useDispatch } from "react-redux";
@@ -6,14 +5,15 @@ import { SetToken } from "../actions";
 import { ClearToken } from "../actions";
 import { useHistory } from "react-router-dom";
 
-const apiEndpoint = config.apiUrl + "/auth";
-
 export default function useAuth() {
   const dispatch = useDispatch();
   const history = useHistory();
 
   async function login(email, password) {
-    const { data: jwt } = await http.post(apiEndpoint, { email, password });
+    const { data: jwt } = await http.post(config.apiUrl + "/auth", {
+      email,
+      password,
+    });
     dispatch(SetToken(jwt));
   }
 
@@ -21,9 +21,16 @@ export default function useAuth() {
     await dispatch(ClearToken());
     await history.push("/");
   }
-
+  async function register(user) {
+    return http.post(config.apiUrl + "/users", {
+      email: user.email,
+      password: user.password,
+      name: user.name,
+    });
+  }
   return {
     login,
     logout,
+    register,
   };
 }

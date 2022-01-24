@@ -1,5 +1,3 @@
-import { RouteComponentProps } from "react-router-dom";
-
 export interface IHeader {
   name: string;
 }

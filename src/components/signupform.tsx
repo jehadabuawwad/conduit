@@ -3,8 +3,8 @@ import { IForm } from "../interfaces/components";
 import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import { SignUp } from "../actions";
 import { useState } from "react";
-import { register } from "../services/userService";
 import { useHistory } from "react-router-dom";
+import useAuth from '../services/authService';
 const SignUpForm: React.FunctionComponent<IForm> = (props) => {
   interface UserData {
     password: string;
@@ -15,8 +15,9 @@ const SignUpForm: React.FunctionComponent<IForm> = (props) => {
   const initalState = { email: "", password: "", name: "" };
   const [data, setData] = useState(initalState);
   const info = useSelector((state: RootStateOrAny) => state.UserInfo);
-  const dispatch = useDispatch();
   const history = useHistory();
+  const dispatch = useDispatch();
+  const { register } = useAuth();
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     //Dont Use ..>> // setData({ ...data, [event.target.name]: event.target.value });
