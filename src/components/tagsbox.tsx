@@ -24,14 +24,14 @@ const TagsBox: React.FunctionComponent<ITagsBox> = (props) => {
 
   console.log(selectedTags);
   return (
-    <div className="sidebar">
+    <div className='sidebar'>
       <p>Popular Tags</p>
-      <div className="tag-list">
-        {selectedTags.map((item: string, idx: number) => (
+      <div className='tag-list'>
+        {selectedTags.map((item: string) => (
           <Link
-            to="#"
-            key={idx}
-            className="tag"
+            to='#'
+            key={item}
+            className='tag'
             onClick={() => dispatch(collectSelectedTag(item))}
           >
             {item}

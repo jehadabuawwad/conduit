@@ -83,7 +83,7 @@ const Post: React.FunctionComponent<IPost> = (props) => {
                   {item.tagList &&
                     item.tagList.map((tag: string, idx: number) => (
                       <li
-                        key={idx}
+                        key={item}
                         style={{ padding: 5, display: "inline" }}
                         className="tags-list"
                       >
