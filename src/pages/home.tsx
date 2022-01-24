@@ -10,21 +10,6 @@ import Hero from "../components/hero";
 const HomePage: React.FunctionComponent<IPage> = (props) => {
   const dispatch = useDispatch();
   const selectedTag = useSelector((state: RootStateOrAny) => state.selectedTag);
-  const handleTagSelection = () => {
-    const element: any = document.getElementById("HomeMenu");
-    element.style.borderBottom = "1px solid rgb(214, 214, 214)";
-    return (
-      <Link to='#' className='selceted-tag'>
-        # {selectedTag}
-      </Link>
-    );
-  };
-
-  const handleTagUnSelect = () => {
-    const element: any = document.getElementById("HomeMenu");
-    element.style.borderBottom = "2px solid #5cb85c";
-    dispatch(SetEmpty());
-  };
   return (
     <>
       <Hero name='Hero' />
@@ -33,15 +18,25 @@ const HomePage: React.FunctionComponent<IPage> = (props) => {
           <div className='feed-toggle'>
             <ul className='nav'>
               <li className='nav-item'>
-                <Link
-                  onClick={handleTagUnSelect}
-                  id='HomeMenu'
-                  to=''
-                  className='nav-link'
-                >
-                  Global Feed
-                </Link>
-                {selectedTag && handleTagSelection()}
+                {!selectedTag ? (
+                  <Link id='HomeMenu' to='' className='selceted-tag'>
+                    Global Feed
+                  </Link>
+                ) : (
+                  <>
+                    <Link
+                      onClick={() => dispatch(SetEmpty())}
+                      id='HomeMenu'
+                      to=''
+                      className='unselceted-tag'
+                    >
+                      Global Feed
+                    </Link>
+                    <Link id='HomeMenu' to='' className='selceted-tag'>
+                      # {selectedTag}
+                    </Link>
+                  </>
+                )}
               </li>
             </ul>
           </div>
