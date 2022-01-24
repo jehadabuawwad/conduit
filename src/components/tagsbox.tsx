@@ -20,7 +20,7 @@ const TagsBox: React.FunctionComponent<ITagsBox> = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [dispatch]);
 
   console.log(selectedTags);
   return (

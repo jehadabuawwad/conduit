@@ -14,7 +14,7 @@ const HomePage: React.FunctionComponent<IPage> = (props) => {
     const element: any = document.getElementById("HomeMenu");
     element.style.borderBottom = "1px solid rgb(214, 214, 214)";
     return (
-      <Link to="" className="selceted-tag">
+      <Link to='#' className='selceted-tag'>
         # {selectedTag}
       </Link>
     );
@@ -27,17 +27,17 @@ const HomePage: React.FunctionComponent<IPage> = (props) => {
   };
   return (
     <>
-      <Hero name="Hero" />
-      <div className="grid-container">
-        <div className="grid-item item1">
-          <div className="feed-toggle">
-            <ul className="nav">
-              <li className="nav-item">
+      <Hero name='Hero' />
+      <div className='grid-container'>
+        <div className='grid-item item1'>
+          <div className='feed-toggle'>
+            <ul className='nav'>
+              <li className='nav-item'>
                 <Link
                   onClick={handleTagUnSelect}
-                  id="HomeMenu"
-                  to=""
-                  className="nav-link"
+                  id='HomeMenu'
+                  to=''
+                  className='nav-link'
                 >
                   Global Feed
                 </Link>
@@ -45,10 +45,10 @@ const HomePage: React.FunctionComponent<IPage> = (props) => {
               </li>
             </ul>
           </div>
-          <Post name="Post" />
+          <Post name='Post' />
         </div>
-        <div className="grid-item item2">
-          <TagsBox name="Tags Box" />
+        <div className='grid-item item2'>
+          <TagsBox name='Tags Box' />
         </div>
       </div>
     </>
