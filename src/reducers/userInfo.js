@@ -4,6 +4,8 @@ const UserInfo = (state = {}, action) => {
       return action.data;
     case "SignUp":
       return action.data;
+    case "LoggedIn":
+      return !action.loggedIn;
     default:
       return state;
   }

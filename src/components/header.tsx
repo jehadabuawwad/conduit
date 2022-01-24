@@ -1,18 +1,12 @@
 import * as React from "react";
 import "../style/header.css";
 import { IHeader } from "../interfaces/components";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useSelector, RootStateOrAny } from "react-redux";
+import useAuth from "../services/authService";
 const Header: React.FunctionComponent<IHeader> = (props) => {
-  const isLogged = localStorage.getItem("token");
-  const history = useHistory();
-  const handleSignOut = () => {
-    localStorage.clear();
-    setTimeout(() => {
-      history.push("/");
-      window.location.reload();
-    }, 50);
-  };
-
+  const isLogged = useSelector((state: RootStateOrAny) => state.Token);
+  const { logout } = useAuth();
   return (
     <>
       <header>
@@ -24,7 +18,7 @@ const Header: React.FunctionComponent<IHeader> = (props) => {
             {isLogged ? (
               <>
                 <Link to='/'>Home</Link>
-                <Link onClick={handleSignOut} to='/sign-in'>
+                <Link onClick={logout} to='/sign-in'>
                   Sign Out
                 </Link>
               </>

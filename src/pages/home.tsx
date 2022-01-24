@@ -7,9 +7,11 @@ import IPage from "../interfaces/pages";
 import TagsBox from "../components/tagsbox";
 import Post from "../components/post";
 import Hero from "../components/hero";
+
 const HomePage: React.FunctionComponent<IPage> = (props) => {
   const dispatch = useDispatch();
   const selectedTag = useSelector((state: RootStateOrAny) => state.selectedTag);
+
   return (
     <>
       <Hero name='Hero' />

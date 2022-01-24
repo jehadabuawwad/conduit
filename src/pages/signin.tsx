@@ -2,20 +2,9 @@ import React from "react";
 import "../style/signin.css";
 import { Link } from "react-router-dom";
 import SignInForm from "../components/signinform";
-import { useEffect } from "react";
+import IPage from "../interfaces/pages";
 
-interface customPage {
-  name: string;
-  props: object;
-}
-
-const SignIn: React.FunctionComponent<customPage> = (props: any) => {
-  const isLogged = localStorage.getItem("token");
-  useEffect(() => {
-    if (isLogged) {
-      props.history.push("/");
-    }
-  }, [isLogged, props.history]);
+const SignIn: React.FunctionComponent<IPage> = (props) => {
   return (
     <div className='grid-container'>
       <div className='grid-col'>

@@ -46,46 +46,43 @@ const Post: React.FunctionComponent<IPost> = (props) => {
       {filtered.map((item: any, idx: any) => {
         return (
           <div>
-            <div className="article-preview">
-              <div className="article-meta">
-                <Link className="post-link" to="">
+            <div className='article-preview'>
+              <div className='article-meta'>
+                <Link className='post-link' to=''>
                   <img
-                    alt="missing"
-                    className="post-icon"
-                    src="https://api.realworld.io/images/demo-avatar.png"
+                    alt='missing'
+                    className='post-icon'
+                    src='https://api.realworld.io/images/demo-avatar.png'
                   />
                 </Link>
-                <div className="info">
-                  <Link
-                    className="author"
-                    to="#"
-                  >
+                <div className='info'>
+                  <Link className='author' to='#'>
                     {item.author.username}
                   </Link>
-                  <span className="date">
+                  <span className='date'>
                     <Moment>{item.createdAt}</Moment>
                   </span>
                 </div>
-                <div className="likes">
-                  <button className="like-button">
-                    <Icon icon="ant-design:heart-filled" />
+                <div className='likes'>
+                  <button className='like-button'>
+                    <Icon icon='ant-design:heart-filled' />
                     <p style={{ display: "inline", marginLeft: 5 }}>
                       {item.favoritesCount}
                     </p>
                   </button>
                 </div>
               </div>
-              <Link className="preview-link" to="">
+              <Link className='preview-link' to=''>
                 <h1>{item.title}</h1>
                 <p>{item.description}n</p>
-                <div id="read">Read more...</div>
-                <ul className="list">
+                <div id='read'>Read more...</div>
+                <ul className='list'>
                   {item.tagList &&
                     item.tagList.map((tag: string, idx: number) => (
                       <li
                         key={item}
                         style={{ padding: 5, display: "inline" }}
-                        className="tags-list"
+                        className='tags-list'
                       >
                         {tag}
                       </li>

@@ -21,10 +21,3 @@ export interface IMenu {
 export interface IForm {
   name: string;
 }
-export interface IProtectedRoute {
-  component:
-    | React.ComponentType<RouteComponentProps<any>>
-    | React.ComponentType<any>
-    | React.LazyExoticComponent<React.ComponentType<any>>
-  name: string;
-}
