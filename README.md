@@ -20,7 +20,7 @@ VS Code
 Clone this repository to your local machine.
 
 ```bash
-git clonehttps://github.com/Jehadabuawwad/conduit.git
+git clone https://github.com/Jehadabuawwad/conduit.git
 ```
 
 ### to build the project
