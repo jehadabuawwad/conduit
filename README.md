@@ -1,7 +1,5 @@
 ## React based App
 
-## Advanced topics in React with redux state management library using
-
 ### An Application developed using React and styled with Bootsrap also with state managment library called Redux
 
 ---
