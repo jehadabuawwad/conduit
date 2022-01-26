@@ -2,6 +2,8 @@
 
 ### An Application developed using React and styled with Bootsrap also with state managment library called Redux
 
+### Its For rendering posts retrived from Backend API and filter it using Tag selection, powerful protected application for simple use.
+
 ---
 
 ## Tools Used
