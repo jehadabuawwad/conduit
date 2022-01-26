@@ -19,7 +19,11 @@ Clone this repository to your local machine.
 ```bash
 git clone https://github.com/Jehadabuawwad/conduit.git
 ```
+Clone the backend and start it to your local machine.
 
+```bash
+git clone https://github.com/mosh-hamedani/vidly-api-node
+```
 ### to build the project
 
 ```bash
